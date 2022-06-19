@@ -317,7 +317,7 @@ import nprogress from 'nprogress'
         methods: {
             async getTicket() {
                 try {
-                    const url = "http://localhost:3333/api/ticket/" + this.ticketId
+                    const url = "/api/ticket/" + this.ticketId
                     let response = await fetch(url, {
                         method: 'GET',
                         mode: 'cors',
@@ -346,7 +346,7 @@ import nprogress from 'nprogress'
             },
             async getReimbursements() {
                 try {
-                    const url = "http://localhost:3333/api/reimbursement/" + this.ticketId
+                    const url = "/api/reimbursement/" + this.ticketId
                     let response = await fetch(url, {
                         method: 'GET',
                         mode: 'cors',
@@ -375,7 +375,7 @@ import nprogress from 'nprogress'
                 try {
                     const fd = new FormData()
                     fd.append('file', this.file, this.file.name)
-                    await fetch('http://localhost:3333/api/upload', {
+                    await fetch('/api/upload', {
                         method: 'POST',
                         headers: {
                             'Authorization': 'Bearer ' + this.$store.getters.token,
@@ -390,7 +390,7 @@ import nprogress from 'nprogress'
             async getUserInfo() {
                 try {
                     await this.getTicket()
-                    const url = "http://localhost:3333/api/user/" + this.ticket.user_id
+                    const url = "/api/user/" + this.ticket.user_id
                     let response = await fetch(url, {
                         method: 'GET',
                         mode: 'cors',
@@ -407,7 +407,7 @@ import nprogress from 'nprogress'
             },
             async getPublicRemarks() {
                 try {
-                    const url = "http://localhost:3333/api/remarks/public/ticket/" + this.ticketId
+                    const url = "/api/remarks/public/ticket/" + this.ticketId
                     let response = await fetch(url, {
                         method: 'GET',
                         mode: 'cors',
@@ -435,7 +435,7 @@ import nprogress from 'nprogress'
             },
             async getPrivateRemarks() {
                 try {
-                    const url = "http://localhost:3333/api/remarks/private/ticket/" + this.ticketId
+                    const url = "/api/remarks/private/ticket/" + this.ticketId
                     let response = await fetch(url, {
                         method: 'GET',
                         mode: 'cors',
@@ -497,7 +497,7 @@ import nprogress from 'nprogress'
                     content = this.privateRemarksInput
                 }
                 try {
-                    await fetch("http://localhost:3333/api/remarks", {
+                    await fetch("/api/remarks", {
                         method: 'POST',
                         mode: 'cors',
                         headers: {
@@ -523,7 +523,7 @@ import nprogress from 'nprogress'
                 for (let i = 0; i < reimbursementIds.length; i++) {
                     if (this.checkedRows.includes(reimbursementIds[i])) {
                         try {
-                            const url = "http://localhost:3333/api/reimbursement/" + reimbursementIds[i]
+                            const url = "/api/reimbursement/" + reimbursementIds[i]
                             await fetch(url, {
                                 method: 'PATCH',
                                 mode: 'cors',
@@ -540,7 +540,7 @@ import nprogress from 'nprogress'
                         }
                     } else {
                         try {
-                            const url = "http://localhost:3333/api/reimbursement/" + reimbursementIds[i]
+                            const url = "/api/reimbursement/" + reimbursementIds[i]
                             await fetch(url, {
                                 method: 'PATCH',
                                 mode: 'cors',
@@ -594,7 +594,7 @@ import nprogress from 'nprogress'
                 }    
 
                 try {
-                    const url = "http://localhost:3333/api/ticket/" + this.ticketId
+                    const url = "/api/ticket/" + this.ticketId
                     await fetch(url,  {
                         method: 'PATCH',
                         mode: 'cors',
@@ -613,7 +613,7 @@ import nprogress from 'nprogress'
 
                 if (this.$store.getters.role === 'hr') {
                     try {
-                        const url = "http://localhost:3333/api/ticket/" + this.ticketId + "/hr"
+                        const url = "/api/ticket/" + this.ticketId + "/hr"
                         await fetch(url, {
                             method: 'PATCH',
                             mode: 'cors',
@@ -622,7 +622,7 @@ import nprogress from 'nprogress'
                                 'Content-Type': 'application/json'
                             },
                             body: JSON.stringify({
-                                hrLink: 'http://localhost:3333/uploads/' + this.file.name,
+                                hrLink: '/uploads/' + this.file.name,
                             })
                         })
                     } catch(error) {

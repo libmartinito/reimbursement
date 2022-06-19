@@ -43,7 +43,7 @@ const store = createStore({
     actions: {
         async register(context, payload) {
             try {
-                let response = await fetch("http://localhost:3333/api/auth/register", {
+                let response = await fetch("/api/auth/register", {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -81,7 +81,7 @@ const store = createStore({
         },
         async login(context, payload) {
             try {
-                let response = await fetch("http://localhost:3333/api/auth/login", {
+                let response = await fetch("/api/auth/login", {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

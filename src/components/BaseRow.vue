@@ -48,7 +48,7 @@
             },
             async getActionBy() {
                 try {
-                    let response = await fetch("http://localhost:3333/api/ticket/" + this.id, {
+                    let response = await fetch("/api/ticket/" + this.id, {
                         method: 'GET',
                         mode: 'cors',
                         headers: {

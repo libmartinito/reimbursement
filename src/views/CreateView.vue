@@ -230,7 +230,7 @@ import nprogress from 'nprogress'
                 try {
                     const fd = new FormData()
                     fd.append('file', this.file, this.file.name)
-                    await fetch('http://localhost:3333/api/upload', {
+                    await fetch('/api/upload', {
                         method: 'POST',
                         headers: {
                             'Authorization': 'Bearer ' + this.$store.getters.token,
@@ -244,7 +244,7 @@ import nprogress from 'nprogress'
             },
             async getCrf() {
                 try {
-                    let response = await fetch("http://localhost:3333/api/ticketcrf", {
+                    let response = await fetch("/api/ticketcrf", {
                         method: 'GET',
                         mode: 'cors',
                         headers: {
@@ -284,7 +284,7 @@ import nprogress from 'nprogress'
                         crf = 1000
                     }
 
-                    let response = await fetch("http://localhost:3333/api/ticket", {
+                    let response = await fetch("/api/ticket", {
                         method: 'POST',
                         mode: 'cors',
                         headers: {
@@ -296,7 +296,7 @@ import nprogress from 'nprogress'
                             userId: this.$store.getters.userId,
                             purpose: this.purpose,
                             office: this.office,
-                            imageLink: 'http://localhost:3333/uploads/' + this.file.name,
+                            imageLink: '/uploads/' + this.file.name,
                             hrLink: null,
                             actionBy: 'director',
                             status: 'Pending Director Action'
@@ -305,7 +305,7 @@ import nprogress from 'nprogress'
 
                     response = await response.json()
                     for (let i = 0; i < this.reimbursements.length; i++) {
-                        await fetch("http://localhost:3333/api/reimbursement", {
+                        await fetch("/api/reimbursement", {
                             method: 'POST',
                             mode: 'cors',
                             headers: {

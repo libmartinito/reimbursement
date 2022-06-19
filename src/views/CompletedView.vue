@@ -156,7 +156,7 @@ import nprogress from 'nprogress'
             async getUserTickets() {
                 nprogress.start()
                 try {
-                    const url = "http://localhost:3333/api/ticket/user/" + this.$store.getters.userId
+                    const url = "/api/ticket/user/" + this.$store.getters.userId
                     let response = await fetch(url, {
                         method: 'GET',
                         mode: 'cors',
@@ -178,7 +178,7 @@ import nprogress from 'nprogress'
             async getAllTickets() {
                 nprogress.start()
                 try {
-                    let response = await fetch("http://localhost:3333/api/ticket", {
+                    let response = await fetch("/api/ticket", {
                         method: 'GET',
                         mode: 'cors',
                         headers: {

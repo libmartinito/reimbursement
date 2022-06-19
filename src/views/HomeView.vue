@@ -137,7 +137,7 @@
             },
             async getAllTickets() {
                 try {
-                    let response = await fetch("http://localhost:3333/api/ticket", {
+                    let response = await fetch("/api/ticket", {
                         method: "GET",
                         mode: 'cors',
                         headers: {

@@ -139,7 +139,7 @@ import nprogress from 'nprogress'
             async getUserTickets() {
                 nprogress.start()
                 try {
-                    const url = "http://localhost:3333/api/ticket/user/" + this.$store.getters.userId
+                    const url = "/api/ticket/user/" + this.$store.getters.userId
                     let response = await fetch(url, {
                         method: 'GET',
                         mode: 'cors',
@@ -161,7 +161,7 @@ import nprogress from 'nprogress'
             async getTicketsFilteredByRole() {
                 nprogress.start()
                 try {
-                    const url = "http://localhost:3333/api/ticket/role/" + this.$store.getters.role
+                    const url = "/api/ticket/role/" + this.$store.getters.role
                     let response = await fetch(url, {
                         method: 'GET',
                         mode: 'cors',
